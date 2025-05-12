@@ -1,4 +1,5 @@
 import requests
+from values import *
 
 url = "https://petfriends.skillfactory.ru/new_user"
 
@@ -7,8 +8,8 @@ def test_register_new_user_success():
 
     data = {
         "name": "Alice",
-        "pass": "password123",
-        "email": "alice@example.com"
+        "pass": VALID_PASS,
+        "email": VALID_EMAIL
     }
 
     response = requests.post(url, data=data)
@@ -22,7 +23,7 @@ def test_register_with_invalid_email():
 
     data = {
         "name": "Bob",
-        "pass": "password123",
+        "pass": VALID_PASS,
         "email": "bobexample.com"
     }
 
