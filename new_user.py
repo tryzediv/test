@@ -2,7 +2,7 @@ import requests
 
 url = "https://petfriends.skillfactory.ru/new_user"
 
-
+# Позитивный тест
 def test_register_new_user_success():
 
     data = {
@@ -17,7 +17,7 @@ def test_register_new_user_success():
 
     print("\nПользователь успешно зарегистрирован")
 
-
+# Негативный, не валидный емейл
 def test_register_with_invalid_email():
 
     data = {
@@ -34,7 +34,7 @@ def test_register_with_invalid_email():
     print("\nТест пройден: регистрация с неверным email не удалась")
     print(f"Ответ сервера - {response.status_code}")
 
-
+# Негативный, отсутствует пароль
 def test_register_missing_password():
 
     data = {
@@ -51,7 +51,7 @@ def test_register_missing_password():
     print("\nТест пройден: регистрация без пароля не удалась")
     print(f"Ответ сервера - {response.status_code}")
 
-
+# # Негативный, слишком длинные строки
 def test_register_with_very_long_data():
 
     long_name = "A" * 1000

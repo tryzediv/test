@@ -24,7 +24,7 @@ def test_get_api_key_valid_user():
 
     print("Тест пройден: авторизация успешна и API-ключ получен")
 
-
+# Негативный, не валидный емейл
 def test_get_api_key_invalid_email():
 
     headers = {
@@ -38,7 +38,7 @@ def test_get_api_key_invalid_email():
 
     print("\nТест пройден: запрос с неверным email завершён с кодом", response.status_code)
 
-
+# Негативный, не валидный пароль
 def test_get_api_key_invalid_password():
 
     headers = {
@@ -52,7 +52,7 @@ def test_get_api_key_invalid_password():
 
     print("\nТест пройден: запрос с неверным паролем завершён с кодом", response.status_code)
 
-
+# Негативный, отсутсвует емейл
 def test_get_api_key_missing_email():
 
     headers = {
@@ -65,7 +65,7 @@ def test_get_api_key_missing_email():
 
     print("\nТест пройден: запрос без email завершён с кодом", response.status_code)
 
-
+# Негативный, пустые значения
 def test_get_api_key_empty_credentials():
 
     headers = {
