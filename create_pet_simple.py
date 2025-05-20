@@ -1,20 +1,12 @@
 import requests
 from values import *
+from helper import get_api_key
+import random
 
 url = "https://petfriends.skillfactory.ru/api/create_pet_simple"
+age = random.randint(1, 99)
+name = f'Мурзик_{random.randint(1, 1000)}'
 
-
-def get_api_key():
-
-    endpoint = "https://petfriends.skillfactory.ru/api/key"
-    headers = {
-        "email": VALID_EMAIL,
-        "password": VALID_PASS
-    }
-
-    response = requests.get(endpoint, headers=headers)
-    json_response = response.json()
-    return str(json_response["key"])
 
 # Тест1: успешное создание питомца
 def test_create_pet_simple_valid_data():
@@ -24,9 +16,9 @@ def test_create_pet_simple_valid_data():
     }
 
     data = {
-        "name": "Барсик",
+        "name": name,
         "animal_type": "кот",
-        "age": "3"
+        "age": age
     }
 
     response = requests.post(url, headers=headers, data=data)
@@ -37,7 +29,7 @@ def test_create_pet_simple_valid_data():
         json_response = response.json()
         assert json_response["name"] == data["name"], "Имя питомца не совпадает"
         assert json_response["animal_type"] == data["animal_type"], "Тип животного не совпадает"
-        assert json_response["age"] == data["age"], "Возраст питомца не совпадает"
+        assert json_response["age"] == str(data["age"]), "Возраст питомца не совпадает"
         assert "id" in json_response, "В ответе отсутствует ID питомца"
         print("\nПитомец успешно создан")
         print("ID питомца:", json_response["id"])
@@ -56,7 +48,7 @@ def test_create_pet_invalid_auth_key():
     data = {
         "name": "Лютик",
         "animal_type": "собака",
-        "age": "5"
+        "age": age
     }
 
     response = requests.post(url, headers=headers, data=data)
