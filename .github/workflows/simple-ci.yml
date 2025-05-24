@@ -1,0 +1,23 @@
+name: Простой CI-воркфлоу
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Приветствие
+        run: echo "Запущен первый этап"
+      - name: Информация о системе
+        run: echo "Система - Ubuntu 20.04"
+  
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Старт тестирования
+        run: echo "Тестирование начато"
+      - name: Проверка завершена
+        run: echo "Все проверки успешны"
