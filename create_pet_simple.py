@@ -1,5 +1,4 @@
 import requests
-from values import *
 from helper import get_api_key
 import random
 
