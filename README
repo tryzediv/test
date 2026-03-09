@@ -1,0 +1,18 @@
+# PetFriends API Тесты
+
+Проект для обучения автоматизации тестирования API.
+
+## Что нужно знать перед началом
+
+- **Python** - базовый синтаксис (функции, переменные, условия, циклы)
+- **HTTP** - что такое GET, POST, DELETE запросы
+- **JSON** - формат обмена данными
+
+# Запустить все тесты сразу
+python run_tests.py
+
+# Запустить конкретный тест по имени функции
+python run_tests.py test_successful_registration
+python run_tests.py test_get_key_valid_credentials
+python run_tests.py test_create_pet_success
+python run_tests.py test_delete_existing_pet
